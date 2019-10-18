@@ -19,5 +19,7 @@ Using sqlite local file, we got more faster speed than normal file like json or 
 2. ```cd``` to this folder
 3. ```go build && add-tags-app```
 
+App will create data.db in same folder if it isn't exist.
+
 ### Screensnap:
 ![avatar](./images/111.PNG)
