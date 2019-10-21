@@ -48,8 +48,9 @@ func main() {
 	entry := widget.NewEntry()
 	check := widget.NewButton("Check Item", func() { orm.checkItem(entry) })
 	submit := widget.NewButton("Submit Item", func() { orm.submitItem(entry) })
+	delete := widget.NewButton("Delete Item", func() { orm.deleteItem(entry) })
 	lHbox.Append(entry)
-	lHbox.Append(widget.NewHBox(check, submit))
+	lHbox.Append(widget.NewHBox(check, submit, delete))
 	lHbox.Append(checkText)
 	lHbox.Append(tagText)
 

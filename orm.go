@@ -96,6 +96,21 @@ func (o *ORM) checkItem(input *widget.Entry) {
 	tagText.SetText("")
 }
 
+func (o *ORM) deleteItem(input *widget.Entry) {
+	// items := []Item{}
+	aff, err := o.E.Exec("Delete from item where item.name = ?", input.Text)
+	if err != nil {
+		pe(err)
+		return
+	}
+	if num, _ := aff.RowsAffected(); num > 0 {
+		checkText.SetText("Item has been deleted")
+	} else {
+		checkText.SetText("Wrong: Delete failed")
+	}
+	tagText.SetText("")
+}
+
 func (o *ORM) submitItem(input *widget.Entry) {
 	// println("submit item：" + input.Text)
 	strs := strings.Split(tagText.Text, ",")
